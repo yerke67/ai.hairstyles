@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HairStyle AI — определение причёски</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.5/dist/teachablemachine-image.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header><div class="logo">✦ HairStyle <span>AI</span></div><div class="tag">Google Teachable Machine</div></header>
+    <section class="hero"><span class="eyebrow">УМНОЕ РАСПОЗНАВАНИЕ</span><h1>Какая у тебя <em>причёска?</em></h1><p>Загрузи фотографию или включи камеру — нейросеть определит тип стрижки за несколько секунд.</p></section>
+    <section class="panel"><div class="tabs"><button id="photoTab" class="tab active" type="button">↥ Загрузить фото</button><button id="cameraTab" class="tab" type="button">◉ Камера</button></div>
+      <div class="preview" id="dropZone"><img id="photo" alt="Загруженная фотография" hidden /><div id="cameraBox" hidden></div><div id="placeholder"><div class="illustration">✂</div><h2>Добавьте фотографию</h2><p>JPG, PNG или WEBP</p></div></div>
+      <div class="actions"><label class="primary" id="uploadLabel" for="fileInput">Выбрать фотографию</label><input type="file" id="fileInput" accept="image/*" hidden /><button class="primary" id="startCamera" hidden>Включить камеру</button><button class="secondary" id="analyze" disabled>Определить причёску ✨</button><button class="secondary" id="stopCamera" hidden>Выключить камеру</button></div>
+      <p id="status" class="status" role="status" aria-live="polite">Загрузка модели...</p>
+    </section>
+    <section id="results" class="results" hidden><span class="eyebrow">РЕЗУЛЬТАТ АНАЛИЗА</span><h2 id="winner">—</h2><p id="confidence">—</p><div id="probabilities"></div><small>Результат приблизительный и зависит от качества фото и обучающей выборки.</small></section>
+    <footer>Создано с помощью Google Teachable Machine · Фото обрабатывается в браузере</footer>
+  </main>
+</body>
+</html>
